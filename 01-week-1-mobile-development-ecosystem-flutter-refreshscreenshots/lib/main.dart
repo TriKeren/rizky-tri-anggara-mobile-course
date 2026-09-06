@@ -13,9 +13,7 @@ class PoliwangiProfileApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Profil Mahasiswa TRPL',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF0284C7),
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF0284C7)),
         useMaterial3: true,
       ),
       home: const ProfileScreen(),
@@ -25,6 +23,8 @@ class PoliwangiProfileApp extends StatelessWidget {
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
+
+  final String? githubUsername = 'https://github.com/TriKeren?tab=repositories';
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +53,7 @@ class ProfileScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: const Color(0xFFE0F2FE),
                   shape: BoxShape.circle,
-                  border: Border.all(
-                    color: const Color(0xFF0284C7),
-                    width: 3,
-                  ),
+                  border: Border.all(color: const Color(0xFF0284C7), width: 3),
                 ),
                 child: const Icon(
                   Icons.school_rounded,
@@ -106,7 +103,7 @@ class ProfileScreen extends StatelessWidget {
                   side: const BorderSide(color: Color(0xFFE2E8F0)),
                 ),
                 color: Colors.white,
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.all(20.0),
                   child: Column(
                     children: [
@@ -129,13 +126,46 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       Divider(height: 24, color: Color(0xFFF1F5F9)),
                       _InfoRow(
-                        icon: Icons.calendar_today_rounded,
-                        label: 'Semester / TA',
-                        value: 'Semester 3 (2026/2027)',
+                        icon: Icons.link_rounded,
+                        label: 'Repository Github',
+                        value: githubUsername ?? '(Belum Diatur)',
+                      ),
+                      _InfoRow(
+                        icon: Icons.star_rounded,
+                        label: 'Fokus Keahlian',
+                        value: 'Mobile UI/UX & Mobile Development',
                       ),
                     ],
                   ),
                 ),
+              ),
+              SizedBox(height: 30),
+              ElevatedButton.icon(
+                onPressed: () {
+                  // ScaffoldMessenger mengelola tampilan pesan feedback (SnackBar) di atas layar aktif
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      // Konten teks informasi status
+                      content: const Text(
+                        'Status: Mahasiswa Aktif TRPL — Angkatan 2024',
+                      ),
+                      backgroundColor: const Color(
+                        0xFF0284C7,
+                      ), // Warna background biru Poliwangi
+                      behavior: SnackBarBehavior
+                          .floating, // Mengambang melayang di atas batas bawah layar
+                      duration: const Duration(
+                        seconds: 3,
+                      ), // Durasi tampil otomatis sebelum menghilang
+                    ),
+                  );
+                },
+                icon: const Icon(
+                  Icons.verified_user_rounded,
+                ), // Ikon verifikasi bercentang
+                label: const Text(
+                  'Verifikasi Status Mahasiswa',
+                ), // Teks label tombol aksi
               ),
             ],
           ),
