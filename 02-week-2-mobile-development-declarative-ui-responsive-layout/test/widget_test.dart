@@ -13,7 +13,7 @@ import 'package:prak_awal_mobile/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const PoliwangiProfileApp());
+    await tester.pumpWidget(const PoliwangiStarterApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
