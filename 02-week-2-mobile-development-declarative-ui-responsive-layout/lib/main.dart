@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:prak_awal_mobile/studi_kasus/ruang_praktikum.dart';
 import 'modul1/Profile_Screen.dart';
-import 'modul2/academic_dashboard_screen.dart';
+// import 'modul2/academic_dashboard_screen.dart';
 // import 'modul_03/modul_03_app.dart';
 // import 'modul_04/modul_04_app.dart';
 
@@ -33,7 +34,7 @@ class ModuleLauncherScreen extends StatefulWidget {
 
   // Konfigurasi batas modul aktif perkuliahan (diatur oleh Dosen Pengampu)
   // Mahasiswa hanya dapat mengakses modul dengan nomor <= activeModuleUntil
-  static const int activeModuleUntil = 1; // Saat ini: Minggu ke-1 (Hanya Modul 01 terbuka)
+  static const int activeModuleUntil = 1; // Saat ini: Minggu ke-1 (Han ya Modul 01 terbuka)
 
   // Token akses kelas untuk membuka modul saat praktikum di lab
   static const Map<int, String> modulePasscodes = {
@@ -240,7 +241,7 @@ class _ModuleLauncherScreenState extends State<ModuleLauncherScreen> {
             moduleNumber: 2,
             title: 'Declarative UI & Responsive Dashboard',
             subtitle: 'BoxConstraints, LayoutBuilder 1 vs 2 Kolom, Material 3',
-            builder: () => const AcademicDashboardScreen(),
+            builder: () => const RuangPraktikum(),
           ),
           const SizedBox(height: 10),
           // _buildModuleCard(
