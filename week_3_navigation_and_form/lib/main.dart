@@ -4,11 +4,11 @@ import 'package:week_3_navigation_and_form/studi_kasus/home_stud.dart';
 // import 'package:flutter/cupertino.dart'; //ini buat UI MacOS
 
 void main() {
-  runApp(const MyApp());
+  runApp(const WisataKampus());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class WisataKampus extends StatelessWidget {
+  const WisataKampus({super.key});
 
   @override
   Widget build(BuildContext context) {
